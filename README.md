@@ -6,4 +6,4 @@ This is a minimal test program writing to /tmp/z.tar without any compression.
 
 ## Usage
 
-    qtar CScan <PATH>
+    sudo qtar /path/to/input /path/to/output
