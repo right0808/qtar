@@ -10,4 +10,4 @@ clean:
 	rm -f $(BIN) $(OBJECTS)
 
 $(BIN): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS)  $^ -o $@ $(LDFLAGS)

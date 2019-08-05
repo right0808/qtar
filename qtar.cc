@@ -294,8 +294,13 @@ private:
 };
 
 int main(int argc, char *argv[]) {
-	std::string queueType = argv[1];
-	std::string root = argv[2];
+    if (argc != 3) {
+        std::cerr << "usage: sudo qtar /path/to/input /path/to/output\n";
+        return 1;
+    }
+
+	std::string root = argv[1];
+	std::string output = argv[2];
 	struct archive *a;
 
 	a = archive_write_new();
@@ -306,17 +311,12 @@ int main(int argc, char *argv[]) {
 	archive_write_set_format_ustar(a);
 	archive_write_set_bytes_per_block(a, 128 * 1024);
 
-	archive_write_open_file(a, "/tmp/z.tar");
+	archive_write_open_file(a, output.c_str());
 
-	if (queueType == "CScan") {
-		Traverser<CScan> t(a);
-
-		t.walk(root);
-	} else if (queueType == "Queue") {
-		Traverser<Queue> t(a);
-
-		t.walk(root);
-	}
+	Traverser<CScan> t(a);
+	t.walk(root);
 	archive_write_close(a);
 	archive_write_finish(a);
+
+	return 0;
 }
