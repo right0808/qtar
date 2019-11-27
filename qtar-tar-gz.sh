@@ -1,13 +1,13 @@
 #!/bin/bash
 
-[[ "$1" == "" || "$2" == "" || $3 == "" ]] && {
-    echo "usage: $0 /path/to/qtar /path/to/input-dir /path/to/output.tar.gz"
+[[ "$1" == "" || "$2" == "" ]] && {
+    echo "usage: $0 /path/to/input-dir /path/to/output.tar.gz"
     exit
 }
 
-QTAR=$1
-INPUT_DIR=$2
-OUTPUT_TAR_GZ=$3
+QTAR=`pwd`/qtar
+INPUT_DIR=$1
+OUTPUT_TAR_GZ=$2
 
 cd $INPUT_DIR
 SECONDS=0
