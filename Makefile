@@ -1,5 +1,4 @@
 CXXFLAGS=-W -Wall -g -O2
-LDFLAGS+=-larchive
 
 OBJECTS=qtar.o linux_getdents.o firstblock.o
 BIN=qtar
