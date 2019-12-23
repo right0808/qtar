@@ -15,7 +15,7 @@ sudo $QTAR . > $OUTPUT_TAR_GZ.files.list
 T1=$SECONDS
 echo "list files: $(($T1 / 60)) mins $(($T1 % 60)) secs"
 SECONDS=0
-sudo tar zcf $OUTPUT_TAR_GZ -T $OUTPUT_TAR_GZ.files.list
+sudo tar zcf $OUTPUT_TAR_GZ -T $OUTPUT_TAR_GZ.files.list --no-unquote
 T2=$SECONDS
 echo "tar zcf   : $(($T2 / 60)) mins $(($T2 % 60)) secs"
 T3=$(($T1 + $T2))
