@@ -1,3 +1,5 @@
+拷贝百万级别以上小文件使用，减少机械硬盘磁头移动导致的速度慢。
+
 # qtar
 
 See https://www.simula.no/publications/improving-disk-io-performance-linux
